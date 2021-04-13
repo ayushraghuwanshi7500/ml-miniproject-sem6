@@ -1,16 +1,24 @@
 import './App.css';
 import { Layout } from 'antd';
+import SiderContent from './components/SiderContent';
+import FooterContent from './components/FooterContent';
 const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
     <>
       <Layout>
-        <Header>Header</Header>
+        <Header>
+          <h1 style={{ textAlign: 'center' }}>Customer footfall prediction</h1>{' '}
+        </Header>
         <Layout>
-          <Sider>Sider</Sider>
+          <Sider>
+            <SiderContent />
+          </Sider>
           <Content>Content</Content>
         </Layout>
-        <Footer>Footer</Footer>
+        <Footer>
+          <FooterContent />
+        </Footer>
       </Layout>
     </>
   );

@@ -6,13 +6,13 @@
 .ant-layout-header,
 .ant-layout-footer {
   color: #fff;
-  background: #7dbcea;
+  background: #808080;
 }
 [data-theme='dark'] .ant-layout-header {
-  background: #6aa0c7;
+  background: #808080;
 }
 [data-theme='dark'] .ant-layout-footer {
-  background: #6aa0c7;
+  background: #808080;
 }
 .ant-layout-footer {
   line-height: 1.5;
@@ -20,19 +20,20 @@
 .ant-layout-sider {
   color: #fff;
   line-height: 120px;
-  background: #3ba0e9;
+
+  background: #c0c0c0;
 }
 [data-theme='dark'] .ant-layout-sider {
-  background: #3499ec;
+  background: #c0c0c0;
 }
 .ant-layout-content {
   min-height: 120px;
   color: #fff;
   line-height: 120px;
-  background: rgba(16, 142, 233, 1);
+  background: #ffffff;
 }
 [data-theme='dark'] .ant-layout-content {
-  background: #107bcb;
+  background: #ffffff;
 }
 > .code-box-demo > .ant-layout + .ant-layout {
   margin-top: 48px;
