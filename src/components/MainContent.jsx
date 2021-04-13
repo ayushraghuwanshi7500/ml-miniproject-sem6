@@ -38,7 +38,7 @@ const MainContent = () => {
   return (
     <Row>
       <Col span={4}></Col>
-      <Col style={{ marginTop: 20 }} span={16}>
+      <Col style={{ marginTop: 30 }} span={16}>
         <Form
           name='basic'
           form={form}

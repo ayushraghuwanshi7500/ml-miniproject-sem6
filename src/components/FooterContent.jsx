@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col, List } from 'antd';
 const FooterContent = () => {
   const mystyle = {
     textAlign: 'center',
@@ -7,46 +7,101 @@ const FooterContent = () => {
     fontSize: 15,
     marginBottom: 5
   };
+  const dataExploration = ['Aditi Bhole', 'Anshuta Kakuste'];
+  const dataCleaningAndPreProcessing = [
+    'Jennifer James',
+    'Sneha Bency',
+    'Eshan Goel'
+  ];
+  const dataModelling = [
+    'Rhea Handa',
+    'Shivalika Pandita',
+    'Shyann James',
+    'Hanah Zachariah',
+    'Dilrose Reji'
+  ];
+  const webDev = ['Ayush Raghuwanshi', 'Sanmith Kurian'];
+  const documentation = ['Aditi Bhole'];
   return (
     <>
       <Row gutter={24}>
         <Col className='gutter-row' style={mystyle} span={4}>
-          Aditi Bhole
+          <List
+            size='small'
+            style={{ textAlign: 'center' }}
+            header={
+              <h6 style={{ marginTop: 5, textAlign: 'center' }}>
+                Initial Data Exploration
+              </h6>
+            }
+            bordered
+            dataSource={dataExploration}
+            renderItem={(item) => (
+              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+            )}
+          />
+        </Col>
+        <Col className='gutter-row' style={mystyle} span={6}>
+          <List
+            size='small'
+            style={{ textAlign: 'center' }}
+            header={
+              <h6 style={{ marginTop: 5, textAlign: 'center' }}>
+                Data Cleaning and PreProcessing
+              </h6>
+            }
+            bordered
+            dataSource={dataCleaningAndPreProcessing}
+            renderItem={(item) => (
+              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+            )}
+          />
+        </Col>
+        <Col className='gutter-row' style={mystyle} span={6}>
+          <List
+            size='small'
+            style={{ textAlign: 'center' }}
+            header={
+              <h6 style={{ marginTop: 5, textAlign: 'center' }}>
+                Data Modelling And Result Compilation
+              </h6>
+            }
+            bordered
+            dataSource={dataModelling}
+            renderItem={(item) => (
+              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+            )}
+          />
         </Col>
         <Col className='gutter-row' style={mystyle} span={4}>
-          Anshuta Kakuste
+          <List
+            size='small'
+            style={{ textAlign: 'center' }}
+            header={
+              <h6 style={{ marginTop: 5, textAlign: 'center' }}>Website</h6>
+            }
+            bordered
+            dataSource={webDev}
+            renderItem={(item) => (
+              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+            )}
+          />
         </Col>
         <Col className='gutter-row' style={mystyle} span={4}>
-          Ayush Raghuwanshi
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Dilrose Reji
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Eshan Goel
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Hanah Zachariah
-        </Col>
-      </Row>
-      <Row gutter={24}>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Jennifer James
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Rhea Handa
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Sanmith Kurian
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Shivalika Pandita
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Shyann James
-        </Col>
-        <Col className='gutter-row' style={mystyle} span={4}>
-          Sneha Bency
+          <List
+            size='small'
+            style={{ textAlign: 'center' }}
+            header={
+              <h6 style={{ marginTop: 5, textAlign: 'center' }}>
+                Documentation
+              </h6>
+            }
+            bordered
+            dataSource={documentation}
+            renderItem={(item) => (
+              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+            )}
+          />
         </Col>
       </Row>
     </>

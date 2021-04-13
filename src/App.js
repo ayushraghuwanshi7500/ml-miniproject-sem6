@@ -8,22 +8,30 @@ function App() {
   return (
     <>
       <Layout>
-        <Header>
-          <h1 style={{ textAlign: 'center', color: 'white' }}>
-            Customer footfall prediction
-          </h1>{' '}
-        </Header>
+        <Sider>
+          <SiderContent />
+        </Sider>
         <Layout>
-          <Sider>
-            <SiderContent />
-          </Sider>
+          <Header>
+            <h1
+              style={{
+                textAlign: 'center',
+                color: 'white',
+                textTransform: 'uppercase',
+                marginTop: 10,
+                marginBottom: 15
+              }}
+            >
+              Customer footfall prediction
+            </h1>
+          </Header>
           <Content>
             <MainContent />
           </Content>
+          <Footer>
+            <FooterContent />
+          </Footer>
         </Layout>
-        <Footer>
-          <FooterContent />
-        </Footer>
       </Layout>
     </>
   );
