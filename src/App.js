@@ -1,12 +1,19 @@
 import './App.css';
+import { Layout } from 'antd';
 
+const { Header, Footer, Sider, Content } = Layout;
 function App() {
   return (
-    <div className='App'>
-      <header>
-        <h1>ML Miniproject Sem-6</h1>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <Header>Header</Header>
+        <Layout>
+          <Sider>Sider</Sider>
+          <Content>Content</Content>
+        </Layout>
+        <Footer>Footer</Footer>
+      </Layout>
+    </>
   );
 }
 
