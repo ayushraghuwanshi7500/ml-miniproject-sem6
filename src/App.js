@@ -11,26 +11,26 @@ const { Header, Footer, Sider, Content } = Layout;
 function App() {
   const [formData, setFormData] = useState('');
   return (
-    <Router>
+    <Layout>
+      <Sider>
+        <SiderContent />
+      </Sider>
       <Layout>
-        <Sider>
-          <SiderContent />
-        </Sider>
-        <Layout>
-          <Header>
-            <h1
-              style={{
-                textAlign: 'center',
-                color: 'white',
-                textTransform: 'uppercase',
-                marginTop: 10,
-                marginBottom: 15
-              }}
-            >
-              Customer footfall prediction
-            </h1>
-          </Header>
-          <Content>
+        <Header>
+          <h1
+            style={{
+              textAlign: 'center',
+              color: 'white',
+              textTransform: 'uppercase',
+              marginTop: 10,
+              marginBottom: 15
+            }}
+          >
+            Customer footfall prediction
+          </h1>
+        </Header>
+        <Content>
+          <Router>
             <Switch>
               <Route path='/prediction'>
                 <PredictionResult
@@ -38,17 +38,17 @@ function App() {
                   setFormData={setFormData}
                 />
               </Route>
-              <Route path='/'>
+              <Route exact path='/'>
                 <MainContent formData={formData} setFormData={setFormData} />
               </Route>
             </Switch>
-          </Content>
-          <Footer>
-            <FooterContent />
-          </Footer>
-        </Layout>
+          </Router>
+        </Content>
+        <Footer>
+          <FooterContent />
+        </Footer>
       </Layout>
-    </Router>
+    </Layout>
   );
 }
 

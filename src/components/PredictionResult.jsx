@@ -2,6 +2,9 @@ import React from 'react';
 import { Button, List, Row, Col } from 'antd';
 import { Link } from 'react-router-dom';
 const PredictionResult = ({ formData, setFormData }) => {
+  window.onload = function () {
+    window.location = '/';
+  };
   const mystyle = {
     textAlign: 'center',
     Rowor: '#171717',
