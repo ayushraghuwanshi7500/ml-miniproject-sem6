@@ -1,4 +1,6 @@
 import { Form, Card, Select, Input, InputNumber, Row, Col, Button } from 'antd';
+import { useEffect, useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 const { Option } = Select;
 
 const cityInput = [
@@ -23,12 +25,18 @@ const categories = [
   'Book Stores and News Dealers'
 ];
 
-const MainContent = () => {
+const MainContent = ({ formData, setFormData }) => {
   const [form] = Form.useForm();
+
+  const [redirect, setRedirect] = useState(false);
   const onFinish = (values) => {
     console.log(values);
+    setFormData(values);
+    setRedirect(true);
   };
-
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
   const onFinishFailed = (errorInfo) => {
     console.log(errorInfo);
   };
@@ -95,7 +103,7 @@ const MainContent = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input postal code!'
+                  message: 'Please input whether brand associated or not!'
                 }
               ]}
             >
@@ -116,7 +124,7 @@ const MainContent = () => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input postal code!'
+                  message: 'Please input a category!'
                 }
               ]}
             >
@@ -132,11 +140,17 @@ const MainContent = () => {
                 ))}
               </Select>
             </Form.Item>
-            <Button type='secondary' style={{ width: '48%' }} htmlType='submit'>
+
+            <Button style={{ width: '48%' }} htmlType='submit'>
+              {redirect && (
+                <Redirect
+                  to={{ pathname: '/prediction', state: { formData } }}
+                />
+              )}
               Predict
             </Button>
             <Button type='ghost' style={{ width: '4%' }}></Button>
-            <Button type='secondary' style={{ width: '48%' }} onClick={onReset}>
+            <Button style={{ width: '48%' }} onClick={onReset}>
               Reset
             </Button>
           </Card>

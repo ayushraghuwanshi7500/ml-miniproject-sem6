@@ -1,12 +1,17 @@
 import './App.css';
+import { useState } from 'react';
 import { Layout } from 'antd';
 import SiderContent from './components/SiderContent';
 import FooterContent from './components/FooterContent';
 import MainContent from './components/MainContent';
+import PredictionResult from './components/PredictionResult';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 const { Header, Footer, Sider, Content } = Layout;
+
 function App() {
+  const [formData, setFormData] = useState('');
   return (
-    <>
+    <Router>
       <Layout>
         <Sider>
           <SiderContent />
@@ -26,14 +31,24 @@ function App() {
             </h1>
           </Header>
           <Content>
-            <MainContent />
+            <Switch>
+              <Route path='/prediction'>
+                <PredictionResult
+                  formData={formData}
+                  setFormData={setFormData}
+                />
+              </Route>
+              <Route path='/'>
+                <MainContent formData={formData} setFormData={setFormData} />
+              </Route>
+            </Switch>
           </Content>
           <Footer>
             <FooterContent />
           </Footer>
         </Layout>
       </Layout>
-    </>
+    </Router>
   );
 }
 
