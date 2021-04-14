@@ -27,7 +27,7 @@ const PredictionResult = ({ formData, setFormData }) => {
           />
 
           <Link to='/'>
-            <Button style={{ width: '100%' }}>Predict Again</Button>
+            <Button style={{ width: '100%' }}>Go Back and Predict Again</Button>
           </Link>
         </Col>
       </Row>
