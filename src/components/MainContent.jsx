@@ -53,9 +53,10 @@ const MainContent = ({ formData, setFormData }) => {
           initialValues={{ remember: true }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
+          style={{ backgroundColor: '#f6f5f5' }}
         >
           <Card
-            // style={{ textAlign: 'center' }}
+            style={{ backgroundColor: '#f6f5f5' }}
             title='Predict whether your company will sustain or not'
           >
             <Form.Item

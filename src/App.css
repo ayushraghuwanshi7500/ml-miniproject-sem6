@@ -6,13 +6,13 @@
 .ant-layout-header,
 .ant-layout-footer {
   color: #fff;
-  background: #808080;
+  background: #aaaaaa;
 }
 [data-theme='dark'] .ant-layout-header {
-  background: #808080;
+  background: #aaaaaa;
 }
 [data-theme='dark'] .ant-layout-footer {
-  background: #808080;
+  background: #aaaaaa;
 }
 .ant-layout-footer {
   line-height: 1.5;
@@ -30,10 +30,10 @@
   min-height: 120px;
   color: #fff;
   line-height: 120px;
-  background: #ffffff;
+  background: #faf9f6;
 }
 [data-theme='dark'] .ant-layout-content {
-  background: #ffffff;
+  background: #faf9f6;
 }
 .code-box-demo > .ant-layout + .ant-layout {
   margin-top: 48px;
