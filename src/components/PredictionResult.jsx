@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, List, Row, Col } from 'antd';
-const PredictionResult = ({ formData, setFormData }) => {
+const PredictionResult = ({ formData, setFormData, data }) => {
   console.log(formData);
   const { city, postal_code, category, brand_association, dates } = formData;
   console.log(dates);
+  console.log(data);
   const query = [
     'City: ' + city,
     'Postal Code: ' + postal_code,
@@ -11,7 +12,6 @@ const PredictionResult = ({ formData, setFormData }) => {
     'Category: ' + category,
     dates[0] + ' to ' + dates[1]
   ];
-
   return (
     <>
       <Row gutter={24} style={{ margin: 5 }}>

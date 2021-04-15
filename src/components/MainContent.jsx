@@ -20,7 +20,9 @@ import {
   EditFilled
 } from '@ant-design/icons';
 import { useEffect, useState } from 'react';
+import { useMutation } from 'react-query';
 import PredictionResult from './PredictionResult';
+import axios from 'axios';
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 const { Step } = Steps;
@@ -351,6 +353,35 @@ const MainContent = ({ formData, setFormData }) => {
   const [form] = Form.useForm();
   const [showPrediction, setShowPrediction] = useState(false);
   const [current, setCurrent] = useState(0);
+  const postRequest = async ({ data }) => {
+    console.log(data);
+    const response = await axios.post(
+      'https://ml-api-2021.herokuapp.com/predict',
+      JSON.stringify(data),
+      {
+        headers: {
+          'Content-type': 'application/json'
+        }
+      }
+    );
+
+    return response.data;
+  };
+  const { data, mutate, isError, isSuccess, isLoading, error } = useMutation(
+    postRequest
+  );
+  useEffect(() => {
+    if (isError) {
+      console.log(data);
+      console.log('error');
+      console.log(error);
+      console.log(error.response);
+    }
+    if (isSuccess) {
+      console.log('success');
+      console.log(data);
+    }
+  }, [isError, isSuccess, error, data]);
   const onFinish = (fieldsValue) => {
     setCurrent((prevCount) => prevCount + 1);
     const rangeValue = fieldsValue['dates'];
@@ -364,9 +395,22 @@ const MainContent = ({ formData, setFormData }) => {
     console.log(values);
 
     setFormData(values);
+    const currFormData = {
+      city: values.city,
+      postal_code: values.postal_code,
+      category: values.category,
+      brand_association: values.brand_association,
+      start_date: values.dates[0].split('-').join(''),
+      end_date: values.dates[1].split('-').join('')
+    };
+    console.log(currFormData);
+    mutate({
+      data: currFormData
+    });
     setShowPrediction(true);
     setCurrent((prevCount) => prevCount + 2);
   };
+  console.log(data);
   useEffect(() => {
     console.log(formData);
   }, [formData]);
@@ -547,7 +591,11 @@ const MainContent = ({ formData, setFormData }) => {
         </Row>
       </Form>
       {showPrediction && (
-        <PredictionResult formData={formData} setFormData={setFormData} />
+        <PredictionResult
+          data={data}
+          formData={formData}
+          setFormData={setFormData}
+        />
       )}
     </>
   );
