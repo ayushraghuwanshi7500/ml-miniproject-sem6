@@ -351,7 +351,7 @@ const rangeConfig = {
 
 const MainContent = ({ formData, setFormData }) => {
   const [form] = Form.useForm();
-  const [showPrediction, setShowPrediction] = useState(false);
+
   const [current, setCurrent] = useState(0);
   const postRequest = async ({ data }) => {
     console.log(data);
@@ -370,6 +370,8 @@ const MainContent = ({ formData, setFormData }) => {
   const { data, mutate, isError, isSuccess, isLoading, error } = useMutation(
     postRequest
   );
+  const [showPrediction, setShowPrediction] = useState(isSuccess);
+
   useEffect(() => {
     if (isError) {
       console.log(data);
@@ -377,11 +379,13 @@ const MainContent = ({ formData, setFormData }) => {
       console.log(error);
       console.log(error.response);
     }
-    if (isSuccess) {
-      console.log('success');
-      console.log(data);
+    if (isSuccess && !isLoading) {
+      setCurrent((prevCount) => prevCount + 2);
     }
-  }, [isError, isSuccess, error, data]);
+    if (isSuccess) {
+      setShowPrediction(true);
+    }
+  }, [isError, isSuccess, isLoading, error, data]);
   const onFinish = (fieldsValue) => {
     setCurrent((prevCount) => prevCount + 1);
     const rangeValue = fieldsValue['dates'];
@@ -407,8 +411,6 @@ const MainContent = ({ formData, setFormData }) => {
     mutate({
       data: currFormData
     });
-    setShowPrediction(true);
-    setCurrent((prevCount) => prevCount + 2);
   };
   console.log(data);
   useEffect(() => {
@@ -434,7 +436,10 @@ const MainContent = ({ formData, setFormData }) => {
         <Col span={16}>
           <Steps current={current}>
             <Step title='Data Entry' />
-            <Step title='Data Processing' />
+            <Step
+              title='Data Processing'
+              icon={!isSuccess && isLoading && <LoadingOutlined />}
+            />
             <Step title='Prediction' />
           </Steps>
         </Col>
