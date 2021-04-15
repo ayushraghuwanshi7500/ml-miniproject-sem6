@@ -30,7 +30,7 @@ body {
 }
 .ant-layout-content {
   min-height: 100vh;
-  color: #fff;
+  /* color: #fff; */
   line-height: 120px;
   background: #faf9f6;
 }

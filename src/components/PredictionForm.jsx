@@ -13,7 +13,7 @@ const { RangePicker } = DatePicker;
 
 const PredictionForm = ({
   setCurrent,
-  request: { data, mutate, isError, isSuccess, isLoading, error },
+  request: { data, mutate, isError, isSuccess, isLoading, error, reset },
 }) => {
   const [form] = Form.useForm();
 
@@ -23,6 +23,9 @@ const PredictionForm = ({
     }
     if (isSuccess && !isLoading) {
       setCurrent((prevCount) => prevCount + 2);
+    }
+    if (isSuccess) {
+      console.log(data);
     }
   }, [isError, isSuccess, isLoading, error, data, setCurrent]);
 
@@ -36,7 +39,6 @@ const PredictionForm = ({
         rangeValue[1].format("YYYY-MM-DD"),
       ],
     };
-    console.log(values);
 
     const currFormData = {
       city: values.city,
@@ -46,19 +48,20 @@ const PredictionForm = ({
       start_date: values.dates[0].split("-").join(""),
       end_date: values.dates[1].split("-").join(""),
     };
-    console.log(currFormData);
+
     mutate({
       data: currFormData,
     });
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log(errorInfo);
+    console.error(errorInfo);
   };
 
   const onReset = () => {
     form.resetFields();
     setCurrent(0);
+    reset();
   };
 
   return (
@@ -70,7 +73,7 @@ const PredictionForm = ({
       onFinishFailed={onFinishFailed}
     >
       <Row style={{ margin: 5 }} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-        <Col className="gutter-row" span={3}>
+        <Col className="gutter-row" span={8}>
           <Form.Item
             name="city"
             rules={[
@@ -102,8 +105,6 @@ const PredictionForm = ({
               ))}
             </Select>
           </Form.Item>
-        </Col>
-        <Col className="gutter-row" span={4}>
           <Form.Item
             name="postal_code"
             rules={[
@@ -136,7 +137,7 @@ const PredictionForm = ({
             </Select>
           </Form.Item>
         </Col>
-        <Col className="gutter-row" span={4}>
+        <Col className="gutter-row" span={8}>
           <Form.Item
             name="brand_association"
             rules={[
@@ -158,8 +159,6 @@ const PredictionForm = ({
               ))}
             </Select>
           </Form.Item>
-        </Col>
-        <Col className="gutter-row" span={4}>
           <Form.Item
             name="category"
             rules={[
@@ -192,23 +191,36 @@ const PredictionForm = ({
             </Select>
           </Form.Item>
         </Col>
-        <Col className="gutter-row" span={5}>
+        <Col className="gutter-row" span={8}>
           <Form.Item name="dates" {...rangeConfig}>
             <RangePicker
               style={{ width: "100%" }}
               disabledDate={(d) => {
-                return !d || d.isAfter("2022-01-01") || d.isBefore(Date.now());
+                return (
+                  !d || d.isAfter("2022-01-01") || d.isBefore("2021-01-01")
+                );
               }}
             />
           </Form.Item>
-        </Col>
-        <Col className="gutter-row" span={4}>
-          <Button style={{ width: "48%" }} htmlType="submit">
-            Predict
-          </Button>
-          <Button style={{ width: "48%" }} onClick={onReset}>
-            Reset
-          </Button>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-evenly",
+            }}
+          >
+            <Button type="default" style={{ width: "50%" }} htmlType="submit">
+              Predict
+            </Button>
+            <Button
+              danger
+              type="text"
+              style={{ width: "50%" }}
+              onClick={onReset}
+            >
+              Reset
+            </Button>
+          </div>
         </Col>
       </Row>
     </Form>

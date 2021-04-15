@@ -1,6 +1,5 @@
 import { Layout } from 'antd';
 import { Footer } from 'antd/lib/layout/layout';
-import { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.css';
 import FooterContent from './components/FooterContent';
@@ -9,7 +8,6 @@ const { Header, Content } = Layout;
 const queryClient = new QueryClient();
 
 function App() {
-  const [formData, setFormData] = useState('');
   
   return (
     <QueryClientProvider client={queryClient}>
@@ -27,7 +25,7 @@ function App() {
         </Header>
         <Layout>
           <Content>
-            <MainContent formData={formData} setFormData={setFormData} />
+            <MainContent />
           </Content>
           <Footer>
             <FooterContent/>
