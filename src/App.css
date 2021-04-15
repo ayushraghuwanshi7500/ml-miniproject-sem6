@@ -20,7 +20,6 @@
 .ant-layout-sider {
   color: #fff;
   line-height: 120px;
-
   background: #c0c0c0;
 }
 [data-theme='dark'] .ant-layout-sider {

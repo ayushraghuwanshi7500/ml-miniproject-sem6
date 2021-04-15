@@ -1,14 +1,16 @@
 import React from 'react';
 import { Button, List, Row, Col } from 'antd';
-import { Link } from 'react-router-dom';
 const PredictionResult = ({ formData, setFormData }) => {
-  window.onload = function () {
-    window.location = '/';
-  };
   console.log(formData);
   const { city, postal_code, category, brand_association, dates } = formData;
   console.log(dates);
-  const query = ['City: ' + city, 'Postal Code: ' + postal_code,'Brand Association: '+ brand_association,'Category: '+ category,dates[0] + ' to ' + dates[1]];
+  const query = [
+    'City: ' + city,
+    'Postal Code: ' + postal_code,
+    'Brand Association: ' + brand_association,
+    'Category: ' + category,
+    dates[0] + ' to ' + dates[1]
+  ];
 
   return (
     <>
@@ -21,14 +23,8 @@ const PredictionResult = ({ formData, setFormData }) => {
             }
             bordered
             dataSource={query}
-            renderItem={(item) => (
-              <List.Item >{item}</List.Item>
-            )}
+            renderItem={(item) => <List.Item>{item}</List.Item>}
           />
-
-          <Link to='/'>
-            <Button style={{ width: '100%' }}>Go Back and Predict Again</Button>
-          </Link>
         </Col>
       </Row>
     </>

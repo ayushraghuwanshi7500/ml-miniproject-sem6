@@ -1,46 +1,51 @@
 import React from 'react';
-import { Steps } from 'antd';
+import { Steps, Timeline } from 'antd';
 // const { Steps, Divider } = antd;
 
 const { Step } = Steps;
 
 const SiderContent = () => {
+  const mystyle = {
+    fontSize: '0.9rem'
+  };
   return (
     <div style={{ margin: 10 }}>
-      <h5 style={{ textAlign: 'center' }}>Steps Followed</h5>
-      {/* <Steps progressDot current={3} direction='vertical'>
-        <Step
-          title='Data Entry'
-          description='The prepared data can be in the form that may not be machine-readable, so to convert this data to readable form, some conversion algorithms are needed. '
-        />
-        <Step
-          title='Processing'
-          description='This is the stage where algorithms and ML techniques are required to perform the instructions provided over a large volume of data with accuracy and optimal computation.'
-        />
-        <Step
-          title='Prediction'
-          description='“Prediction” refers to the output of an algorithm after it has been trained on a historical dataset and applied to new data when forecasting the likelihood of a particular outcome.'
-        />
-      </Steps> */}
-      <Steps progressDot current={6} direction='vertical'>
-        <Step
-          title='Initial Data Exploration'
-          description='Data exploration is the initial step in data analysis, where users explore a large data set in an unstructured way to uncover initial patterns, characteristics, and points of interest.'
-        />
-        <Step
-          title='Data Cleaning and Pre-Processing'
-          description='Data cleaning is the process of detecting and correcting (or removing) corrupt or inaccurate records from a record set, table, or database.'
-        />
-        <Step
-          title='Data Modelling And Result Compilation'
-          description='The process of modeling means training a machine learning algorithm to predict the labels from the features, tuning it for the business need, and validating it on holdout data.'
-        />
-        <Step
-          title='Website'
-          description='Build a basic website to display output for a better UI and UX.'
-        />
-        <Step title='Documentation' />
-      </Steps>
+      <h5 style={{ textAlign: 'center', marginBottom: 30 }}>
+        Project Timeline
+      </h5>
+      <Timeline mode='left'>
+        <Timeline.Item style={mystyle} label='Initial Data Exploration'>
+          1.Aditi Bhole <br />
+          2.Anshuta Kakuste
+        </Timeline.Item>
+        <Timeline.Item style={mystyle} label='Data Cleaning and PreProcessing'>
+          1.Jennifer James
+          <br />
+          2.Sneha Bency
+          <br />
+          3.Eshan Goel
+        </Timeline.Item>
+        <Timeline.Item
+          style={mystyle}
+          label='Data Modelling And Result Compilation'
+        >
+          1.Rhea Handa
+          <br />
+          2.Shivalika Pandita
+          <br />
+          3.Shyann James
+          <br />
+          4.Hanah Zachariah
+          <br />
+          5.Dilrose Reji
+        </Timeline.Item>
+        <Timeline.Item style={mystyle} label='Website'>
+          1.Ayush Raghuwanshi
+          <br />
+          2.Sanmith Kurian
+        </Timeline.Item>
+        {/* <Timeline.Item label='Documentation'>Aditi Bhole</Timeline.Item> */}
+      </Timeline>
     </div>
   );
 };
