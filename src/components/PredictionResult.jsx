@@ -6,8 +6,9 @@ const PredictionResult = ({ formData, setFormData }) => {
     window.location = '/';
   };
   console.log(formData);
-  const { city, postal_code, category, brand_association, start_date,end_date } = formData;
-  const query = [city, postal_code, brand_association, category, start_date,end_date];
+  const { city, postal_code, category, brand_association, dates } = formData;
+  console.log(dates);
+  const query = ['City: ' + city, 'Postal Code: ' + postal_code,'Brand Association: '+ brand_association,'Category: '+ category,dates[0] + ' to ' + dates[1]];
 
   return (
     <>
@@ -15,14 +16,13 @@ const PredictionResult = ({ formData, setFormData }) => {
         <Col className='gutter-row' span={4}>
           <List
             size='small'
-            style={{ textAlign: 'center' }}
             header={
               <h6 style={{ marginTop: 5, textAlign: 'center' }}>Your Query</h6>
             }
             bordered
             dataSource={query}
             renderItem={(item) => (
-              <List.Item style={{ textAlign: 'center' }}>{item}</List.Item>
+              <List.Item >{item}</List.Item>
             )}
           />
 

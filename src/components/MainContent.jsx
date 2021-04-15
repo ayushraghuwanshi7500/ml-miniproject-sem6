@@ -37,12 +37,12 @@ const categories = [
   'Book Stores and News Dealers'
 ];
 
-const config = {
+const rangeConfig = {
   rules: [
     {
-      type: 'object',
+      type: 'array',
       required: true,
-      message: 'Please select time!',
+      message: 'Please select dates!',
     },
   ],
 };
@@ -52,10 +52,10 @@ const MainContent = ({ formData, setFormData }) => {
 
   const [redirect, setRedirect] = useState(false);
   const onFinish = (fieldsValue) => {
+    const rangeValue = fieldsValue['dates'];
     const values = {
       ...fieldsValue,
-      "start_date":fieldsValue['start_date'].format('YYYY-MM-DD'),
-      "end_date":fieldsValue['end_date'].format('YYYY-MM-DD'),
+      'dates': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
     };
     console.log(values);
     setFormData(values);
@@ -96,7 +96,7 @@ const MainContent = ({ formData, setFormData }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input city!'
+                  message: 'Please select a city!'
                 }
               ]}
             >
@@ -118,7 +118,7 @@ const MainContent = ({ formData, setFormData }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input postal code!'
+                  message: 'Please input a postal code!'
                 }
               ]}
             >
@@ -136,7 +136,7 @@ const MainContent = ({ formData, setFormData }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input whether brand associated or not!'
+                  message: 'Please select whether brand associated or not!'
                 }
               ]}
             >
@@ -157,7 +157,7 @@ const MainContent = ({ formData, setFormData }) => {
               rules={[
                 {
                   required: true,
-                  message: 'Please input a category!'
+                  message: 'Please select a category!'
                 }
               ]}
             >
@@ -174,21 +174,12 @@ const MainContent = ({ formData, setFormData }) => {
               </Select>
             </Form.Item>
             <Form.Item
-              name="start_date"
+              name="dates"
+              {...rangeConfig}
             >
-                <DatePicker
-                  placeholder="Start Date"
+                <RangePicker
                   style={{ width: '100%' }}
-                  {...config}
-                />
-            </Form.Item>
-            <Form.Item
-              name="end_date"
-            >
-                <DatePicker
-                  placeholder="End Date"
-                  style={{ width: '100%' }}
-                  {...config}
+                  
                 />
             </Form.Item>
             <Button style={{ width: '48%' }} htmlType='submit'>
