@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import './App.css';
 import FooterContent from './components/FooterContent';
 import MainContent from './components/MainContent';
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 const queryClient = new QueryClient();
 
 function App() {
