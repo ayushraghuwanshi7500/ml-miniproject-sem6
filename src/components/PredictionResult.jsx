@@ -6,11 +6,8 @@ const PredictionResult = ({ formData, setFormData, data }) => {
   console.log(dates);
   console.log(data);
   const { day_pop, high_trafic_day, month_count, predictions, tier } = data;
-  const query = [
-    'Day Pop: ' + day_pop,
-    'High Traffic Day: ' + high_trafic_day,
-    'Month Count: ' + month_count,
-    'Tier: ' + tier === 'tier_1'
+  const currTier =
+    tier === 'tier_1'
       ? 1
       : tier === 'tier_2'
       ? 2
@@ -18,7 +15,11 @@ const PredictionResult = ({ formData, setFormData, data }) => {
       ? 3
       : tier === 'tier_4'
       ? 4
-      : null
+      : 'none';
+  const query = [
+    'High Traffic Day: ' + high_trafic_day,
+    'Month Count: ' + month_count,
+    'Tier: ' + currTier
   ];
 
   console.log(day_pop);
