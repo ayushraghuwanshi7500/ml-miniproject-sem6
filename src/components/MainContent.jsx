@@ -1,8 +1,20 @@
-import { Form, Card, Select, Input, InputNumber, Row, Col, Button } from 'antd';
+import {
+  Form,
+  Card,
+  Select,
+  DatePicker,
+  Space,
+  Input,
+  InputNumber,
+  Row,
+  Col,
+  Button
+} from 'antd';
+
 import { useEffect, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 const { Option } = Select;
-
+const { RangePicker } = DatePicker;
 const cityInput = [
   'Brooklyn',
   'New York',
@@ -25,11 +37,26 @@ const categories = [
   'Book Stores and News Dealers'
 ];
 
+const config = {
+  rules: [
+    {
+      type: 'object',
+      required: true,
+      message: 'Please select time!',
+    },
+  ],
+};
+
 const MainContent = ({ formData, setFormData }) => {
   const [form] = Form.useForm();
 
   const [redirect, setRedirect] = useState(false);
-  const onFinish = (values) => {
+  const onFinish = (fieldsValue) => {
+    const values = {
+      ...fieldsValue,
+      "start_date":fieldsValue['start_date'].format('YYYY-MM-DD'),
+      "end_date":fieldsValue['end_date'].format('YYYY-MM-DD'),
+    };
     console.log(values);
     setFormData(values);
     setRedirect(true);
@@ -43,6 +70,11 @@ const MainContent = ({ formData, setFormData }) => {
   const onReset = () => {
     form.resetFields();
   };
+  function onChange(dates, dateStrings) {
+    console.log('From: ', dates[0], ', to: ', dates[1]);
+    console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+  }
+  
   return (
     <Row>
       <Col span={4}></Col>
@@ -82,7 +114,7 @@ const MainContent = ({ formData, setFormData }) => {
             </Form.Item>
 
             <Form.Item
-              name='postalCode'
+              name='postal_code'
               rules={[
                 {
                   required: true,
@@ -93,14 +125,14 @@ const MainContent = ({ formData, setFormData }) => {
               <InputNumber
                 style={{ width: '100%', textAlign: 'center' }}
                 placeholder='Postal Code'
-                name='postalCode'
+                name='postal_code'
                 type='number'
                 min='0'
               />
             </Form.Item>
 
             <Form.Item
-              name='brand'
+              name='brand_association'
               rules={[
                 {
                   required: true,
@@ -111,7 +143,7 @@ const MainContent = ({ formData, setFormData }) => {
               <Select
                 style={{ width: '100%' }}
                 placeholder='Brand Associtation'
-                name='brand'
+                name='brand_association'
               >
                 {brandAssociation.map((brand) => (
                   <Option key={brand} value={brand}>
@@ -141,7 +173,24 @@ const MainContent = ({ formData, setFormData }) => {
                 ))}
               </Select>
             </Form.Item>
-
+            <Form.Item
+              name="start_date"
+            >
+                <DatePicker
+                  placeholder="Start Date"
+                  style={{ width: '100%' }}
+                  {...config}
+                />
+            </Form.Item>
+            <Form.Item
+              name="end_date"
+            >
+                <DatePicker
+                  placeholder="End Date"
+                  style={{ width: '100%' }}
+                  {...config}
+                />
+            </Form.Item>
             <Button style={{ width: '48%' }} htmlType='submit'>
               {redirect && (
                 <Redirect

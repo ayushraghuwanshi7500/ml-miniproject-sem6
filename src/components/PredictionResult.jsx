@@ -6,8 +6,8 @@ const PredictionResult = ({ formData, setFormData }) => {
     window.location = '/';
   };
   console.log(formData);
-  const { city, postalCode, category, brand } = formData;
-  const query = [city, postalCode, brand, category];
+  const { city, postal_code, category, brand_association, start_date,end_date } = formData;
+  const query = [city, postal_code, brand_association, category, start_date,end_date];
 
   return (
     <>
