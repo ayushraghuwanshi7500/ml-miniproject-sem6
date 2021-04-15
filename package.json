@@ -20,6 +20,7 @@
     "react-scripts": "4.0.3",
     "react-sizeme": "^3.0.1",
     "recharts": "^2.0.9",
+    "serve": "^11.3.2",
     "web-vitals": "^1.1.1"
   },
   "devDependencies": {
@@ -37,7 +38,7 @@
     "eslint-plugin-react-native": "^3.10.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
