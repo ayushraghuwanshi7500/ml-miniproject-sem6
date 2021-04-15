@@ -1,8 +1,5 @@
+import { Timeline } from 'antd';
 import React from 'react';
-import { Steps, Timeline } from 'antd';
-// const { Steps, Divider } = antd;
-
-const { Step } = Steps;
 
 const SiderContent = () => {
   const mystyle = {
@@ -10,41 +7,33 @@ const SiderContent = () => {
   };
   return (
     <div style={{ margin: 10 }}>
-      <h5 style={{ textAlign: 'center', marginBottom: 30 }}>
+      <h5 style={{ marginBottom: 30 }}>
         Project Timeline
       </h5>
       <Timeline mode='left'>
         <Timeline.Item style={mystyle} label='Initial Data Exploration'>
-          1.Aditi Bhole <br />
-          2.Anshuta Kakuste
+          <h6>Aditi Bhole</h6>
+          <h6>Anshuta Kakuste</h6>
         </Timeline.Item>
         <Timeline.Item style={mystyle} label='Data Cleaning and PreProcessing'>
-          1.Jennifer James
-          <br />
-          2.Sneha Bency
-          <br />
-          3.Eshan Goel
+          <h6>Jennifer James</h6>
+          <h6>Sneha Bency</h6>
+          <h6>Eshan Goel</h6>
         </Timeline.Item>
         <Timeline.Item
           style={mystyle}
           label='Data Modelling And Result Compilation'
         >
-          1.Rhea Handa
-          <br />
-          2.Shivalika Pandita
-          <br />
-          3.Shyann James
-          <br />
-          4.Hanah Zachariah
-          <br />
-          5.Dilrose Reji
+          <h6>Rhea Handa</h6>
+          <h6>Shivalika Pandita</h6>
+          <h6>Shyann James</h6>
+          <h6>Hanah Zachariah</h6>
+          <h6>Dilrose Reji</h6>
         </Timeline.Item>
         <Timeline.Item style={mystyle} label='Website'>
-          1.Ayush Raghuwanshi
-          <br />
-          2.Sanmith Kurian
+          <h6>Ayush Raghuwanshi</h6>
+          <h6>Sanmith Kurian</h6>
         </Timeline.Item>
-        {/* <Timeline.Item label='Documentation'>Aditi Bhole</Timeline.Item> */}
       </Timeline>
     </div>
   );

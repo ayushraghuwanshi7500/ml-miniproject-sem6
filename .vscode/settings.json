@@ -1,0 +1,31 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#fff",
+    "titleBar.inactiveForeground": "#e7e7de",
+    "titleBar.activeBackground": "#0f3057",
+    "titleBar.inactiveBackground": "#00587a"
+  },
+  // These are all my auto-save configs
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true,
+  },
+  "editor.tabSize": 2,
+  // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "editor.minimap.enabled": false
+  // "editor.wordWrap": "bounded",
+  // "editor.wrappingIndent": "same",
+}

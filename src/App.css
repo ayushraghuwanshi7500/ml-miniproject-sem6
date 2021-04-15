@@ -1,4 +1,8 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
 
 .code-box-demo {
   text-align: center;
@@ -6,12 +10,11 @@
 .ant-layout-header,
 .ant-layout-footer {
   color: #fff;
+}
+[data-theme="dark"] .ant-layout-header {
   background: #aaaaaa;
 }
-[data-theme='dark'] .ant-layout-header {
-  background: #aaaaaa;
-}
-[data-theme='dark'] .ant-layout-footer {
+[data-theme="dark"] .ant-layout-footer {
   background: #aaaaaa;
 }
 .ant-layout-footer {
@@ -22,16 +25,16 @@
   line-height: 120px;
   background: #c0c0c0;
 }
-[data-theme='dark'] .ant-layout-sider {
+[data-theme="dark"] .ant-layout-sider {
   background: #c0c0c0;
 }
 .ant-layout-content {
-  min-height: 120px;
+  min-height: 100vh;
   color: #fff;
   line-height: 120px;
   background: #faf9f6;
 }
-[data-theme='dark'] .ant-layout-content {
+[data-theme="dark"] .ant-layout-content {
   background: #faf9f6;
 }
 .code-box-demo > .ant-layout + .ant-layout {
