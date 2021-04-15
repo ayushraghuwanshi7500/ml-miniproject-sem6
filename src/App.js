@@ -26,9 +26,6 @@ function App() {
           </h1>
         </Header>
         <Layout>
-          {/* <Sider>
-            <SiderContent />
-          </Sider> */}
           <Content>
             <MainContent formData={formData} setFormData={setFormData} />
           </Content>
