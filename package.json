@@ -38,7 +38,8 @@
     "eslint-plugin-react-native": "^3.10.0"
   },
   "scripts": {
-    "start": "serve -s build",
+    "start": "react-scripts start",
+    "production": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
