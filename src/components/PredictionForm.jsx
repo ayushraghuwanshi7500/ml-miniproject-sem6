@@ -36,7 +36,7 @@ const PredictionForm = ({
       console.log({ error });
     }
     if (isSuccess && !isLoading) {
-      setCurrent((prevCount) => prevCount + 2);
+      setCurrent(2);
     }
     if (isSuccess) {
       console.log(data);
@@ -44,8 +44,8 @@ const PredictionForm = ({
   }, [isError, isSuccess, isLoading, error, data, setCurrent]);
 
   const onFinish = (fieldsValue) => {
-    setIsDisabled(true);
-    setCurrent((prevCount) => prevCount + 1);
+    // setIsDisabled(true);
+    setCurrent(1);
     const rangeValue = fieldsValue["dates"];
     const values = {
       ...fieldsValue,
