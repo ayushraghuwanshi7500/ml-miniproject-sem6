@@ -44,6 +44,7 @@ const PredictionForm = ({
   }, [isError, isSuccess, isLoading, error, data, setCurrent]);
 
   const onFinish = (fieldsValue) => {
+    setIsDisabled(true);
     setCurrent((prevCount) => prevCount + 1);
     const rangeValue = fieldsValue["dates"];
     const values = {
@@ -66,13 +67,16 @@ const PredictionForm = ({
     mutate({
       data: currFormData,
     });
+
   };
 
   const onFinishFailed = (errorInfo) => {
     console.error(errorInfo);
   };
-
+  const [isDisabled, setIsDisabled] = useState(false);
   const onReset = () => {
+    setIsDisabled(false);
+    setPostalCodeByCity([])
     form.resetFields();
     setCurrent(0);
     reset();
@@ -112,6 +116,7 @@ const PredictionForm = ({
                   .localeCompare(optionB.children.toLowerCase())
               }
               onChange={handleCityChange}
+              disabled={isDisabled}
             >
               {cityInput.map((city) => (
                 <Option key={city} value={city}>
@@ -143,6 +148,7 @@ const PredictionForm = ({
                   .toString()
                   .localeCompare(optionB.children.toString())
               }
+              disabled={isDisabled}
             >
               {postalCodeByCity.map((code) => (
                 <Option key={code} value={code}>
@@ -166,12 +172,14 @@ const PredictionForm = ({
               style={{ width: "100%" }}
               placeholder="Brand Associtation"
               name="brand_association"
+              disabled={isDisabled}
             >
               {brandAssociation.map((brand) => (
                 <Option key={brand} value={brand === "Yes" ? 1 : 0}>
                   {brand}
                 </Option>
               ))}
+              
             </Select>
           </Form.Item>
           <Form.Item
@@ -197,6 +205,7 @@ const PredictionForm = ({
                   .toLowerCase()
                   .localeCompare(optionB.children.toLowerCase())
               }
+              disabled={isDisabled}
             >
               {categories.map((category) => (
                 <Option key={category} value={category}>
@@ -215,6 +224,7 @@ const PredictionForm = ({
                   !d || d.isAfter("2022-01-01") || d.isBefore("2021-03-01")
                 );
               }}
+              disabled={isDisabled}
             />
           </Form.Item>
           <div
