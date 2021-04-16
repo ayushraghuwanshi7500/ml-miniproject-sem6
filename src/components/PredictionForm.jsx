@@ -197,7 +197,7 @@ const PredictionForm = ({
               style={{ width: "100%" }}
               disabledDate={(d) => {
                 return (
-                  !d || d.isAfter("2022-01-01") || d.isBefore("2021-01-01")
+                  !d || d.isAfter("2022-01-01") || d.isBefore("2021-03-01")
                 );
               }}
             />
