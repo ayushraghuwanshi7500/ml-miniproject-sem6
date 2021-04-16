@@ -57,14 +57,14 @@ const MainContent = () => {
       >
         {request.isLoading ? (
           <div style={{display:'flex',flexDirection:'column'}}>
-            <div style={{margin:20, display:'flex',flexDirection:'row',justifyContent:'center'}}>
-              <Skeleton.Input style={{width:380,height:290, marginRight: 10,flexShrink:1 }} active/>
-              <Skeleton.Input style={{width:380,height:290,marginRight: 10,}} active/>
-              <Skeleton.Input style={{width:380,height:290,marginRight: 10,}} active/>
-              <Skeleton.Image style={{width:380,height:290,marginRight: 10,}} active/>
+            <div style={{marginTop:25,marginBottom:10, display:'flex',flexDirection:'row',justifyContent:'center'}}>
+              <Skeleton.Input style={{width:'23vw',height:'35vh', marginRight: 10,flexShrink:1 }} active/>
+              <Skeleton.Input style={{width:'23vw',height:'35vh',marginRight: 10,}} active/>
+              <Skeleton.Input style={{width:'23vw',height:'35vh',marginRight: 10,}} active/>
+              <Skeleton.Image style={{width:'23vw',height:'35vh',marginRight: 10,}} active/>
             </div>
             <div style={{ display:'flex',flexDirection:'row',justifyContent:'center'}}>
-              <Skeleton.Image style={{width:1560,height:365,flexShrink:1}} active/>
+              <Skeleton.Image style={{width:'94vw',height:'35vh',flexShrink:1}} active/>
             </div>
           </div>
         ) : request.isSuccess ? (
