@@ -13,7 +13,7 @@ const Predictions = ({ data }) => {
             size="small"
             style={{ marginRight: 10, height: "100%" }}
           >
-            <Typography.Title level={4}>{data?.tier}</Typography.Title>
+            <Typography.Title level={4}>{data?.tier.split('_')[1]}</Typography.Title>
           </Card>
         </Col>
         <Col span={6}>
