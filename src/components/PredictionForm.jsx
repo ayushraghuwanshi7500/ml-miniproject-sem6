@@ -1,22 +1,36 @@
 import { Button, Col, DatePicker, Form, Row, Select } from "antd";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   brandAssociation,
   categories,
   cityInput,
-  postal,
+
+  cityToPostal,
+
   rangeConfig
 } from "../constants/values";
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
-
+console.log(cityToPostal);
 const PredictionForm = ({
   setCurrent,
   request: { data, mutate, isError, isSuccess, isLoading, error, reset },
 }) => {
   const [form] = Form.useForm();
-
+  const [postalCodeByCity, setPostalCodeByCity] = useState([]);
+  const handleCityChange = (event) =>{
+    console.log(event);
+    form.setFieldsValue({
+      postal_code:null
+    });
+    setCurrent(0);
+    cityToPostal.map((city)=>{
+      if(city.city===event){
+        setPostalCodeByCity(city.postalCode)
+      }
+    })
+  }
   useEffect(() => {
     if (isError) {
       console.log({ error });
@@ -97,6 +111,7 @@ const PredictionForm = ({
                   .toLowerCase()
                   .localeCompare(optionB.children.toLowerCase())
               }
+              onChange={handleCityChange}
             >
               {cityInput.map((city) => (
                 <Option key={city} value={city}>
@@ -129,7 +144,7 @@ const PredictionForm = ({
                   .localeCompare(optionB.children.toString())
               }
             >
-              {postal.map((code) => (
+              {postalCodeByCity.map((code) => (
                 <Option key={code} value={code}>
                   {code}
                 </Option>
