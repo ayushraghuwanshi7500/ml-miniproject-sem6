@@ -170,7 +170,7 @@ const PredictionForm = ({
           >
             <Select
               style={{ width: "100%" }}
-              placeholder="Brand Associtation"
+              placeholder="Brand Association"
               name="brand_association"
               disabled={isDisabled}
             >
