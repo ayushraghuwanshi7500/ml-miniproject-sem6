@@ -1,5 +1,5 @@
 import { LoadingOutlined } from "@ant-design/icons";
-import { Col, Row, Spin, Steps } from "antd";
+import { Col, Row, Skeleton, Steps } from "antd";
 import axios from "axios";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -56,7 +56,17 @@ const MainContent = () => {
         }}
       >
         {request.isLoading ? (
-          <Spin size="large" />
+          <div style={{display:'flex',flexDirection:'column'}}>
+            <div style={{margin:20, display:'flex',flexDirection:'row',justifyContent:'center'}}>
+              <Skeleton.Input style={{width:380,height:290, marginRight: 10,flexShrink:1 }} active/>
+              <Skeleton.Input style={{width:380,height:290,marginRight: 10,}} active/>
+              <Skeleton.Input style={{width:380,height:290,marginRight: 10,}} active/>
+              <Skeleton.Image style={{width:380,height:290,marginRight: 10,}} active/>
+            </div>
+            <div style={{ display:'flex',flexDirection:'row',justifyContent:'center'}}>
+              <Skeleton.Image style={{width:1560,height:365,flexShrink:1}} active/>
+            </div>
+          </div>
         ) : request.isSuccess ? (
           request.data?.predictions?.length > 0 ? (
             <Predictions data={request.data} />
