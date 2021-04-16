@@ -14,10 +14,10 @@ export const categories = [
   'Restaurants and Other Eating Places',
   'Grocery Stores',
   'Clothing Stores',
-  'Sporting Goods, Hobby and Musical Instrument Stores',
+  'Sporting Goods, Hobby, and Musical Instrument Stores',
   'Electronics and Appliance Stores',
   'Automobile Dealers',
-  'Beer ,Wine, and Liquor Stores',
+  'Beer, Wine, and Liquor Stores',
   'Specialty Food Stores',
   'Florists',
   'Book Stores and News Dealers'
