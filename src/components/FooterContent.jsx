@@ -1,6 +1,8 @@
 import React from 'react';
-import "../index.css";
+import '../index.css';
 const FooterContent = () => {
+  const cursorStyle = { cursor: 'pointer' };
+  const LINKED_IN_LINK = 'https://www.linkedin.com/in/';
   return (
     <div
       style={{
@@ -12,11 +14,9 @@ const FooterContent = () => {
       <div
         className='namestyle'
         onClick={() =>
-          window.open(
-            'https://www.linkedin.com/in/gauri-patil-17a0131b3',
-            '_blank'
-          )
+          window.open(`${LINKED_IN_LINK}gauri-patil-17a0131b3`, '_blank')
         }
+        style={cursorStyle}
       >
         Gauri Patil
       </div>
@@ -30,12 +30,10 @@ const FooterContent = () => {
       />
       <div
         onClick={() =>
-          window.open(
-            'https://www.linkedin.com/in/ayush-raghuwanshi-333a1a1a2',
-            '_blank'
-          )
+          window.open(`${LINKED_IN_LINK}ayush-raghuwanshi-333a1a1a2`, '_blank')
         }
         className='namestyle'
+        style={cursorStyle}
       >
         Ayush Raghuwanshi
       </div>
@@ -49,12 +47,10 @@ const FooterContent = () => {
       />
       <div
         onClick={() =>
-          window.open(
-            'https://www.linkedin.com/in/yukta-thakur-39b8b1199',
-            '_blank'
-          )
+          window.open(`${LINKED_IN_LINK}yukta-thakur-39b8b1199`, '_blank')
         }
         className='namestyle'
+        style={cursorStyle}
       >
         Yukta Thakur
       </div>
@@ -66,7 +62,15 @@ const FooterContent = () => {
           borderRadius: '50%'
         }}
       />
-      <div style={{ color: '#000', fontSize: '20px' }}>Simran Kalaskar</div>
+      <div
+        onClick={() =>
+          window.open(`${LINKED_IN_LINK}simran-kalaskar-51847617a`, '_blank')
+        }
+        className='namestyle'
+        style={cursorStyle}
+      >
+        Simran Kalaskar
+      </div>
       <div
         style={{
           height: '8px',

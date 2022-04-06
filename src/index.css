@@ -15,9 +15,8 @@ code {
 .namestyle {
   color: #000;
   font-size: 20px;
-  cursor: 'pointer';
 }
 
 .namestyle:hover {
-  color: #00adb5;
+  color: #0262bd;
 }
