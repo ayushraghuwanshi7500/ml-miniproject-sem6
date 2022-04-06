@@ -20,7 +20,7 @@ function App() {
               marginBottom: 15
             }}
           >
-            Customer Footfall Prediction
+            Shopper Footfall Prediction
           </h1>
         </Header>
         <Layout>
