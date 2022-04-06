@@ -17,7 +17,9 @@ function App() {
             style={{
               color: 'white',
               marginTop: 10,
-              marginBottom: 15
+              marginBottom: 15,
+              textAlign:"center",
+              
             }}
           >
             Shopper Footfall Prediction
