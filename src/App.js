@@ -22,7 +22,7 @@ function App() {
               
             }}
           >
-            Shopper Footfall Prediction
+            Customer Footfall Prediction
           </h1>
         </Header>
         <Layout>
