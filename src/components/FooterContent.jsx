@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from 'react';
 import '../index.css';
 =======
+=======
+>>>>>>> parent of 154e064 (ccl-project-changes)
 import {
   AreaChartOutlined,
   ClearOutlined,
@@ -10,11 +13,15 @@ import {
 } from "@ant-design/icons";
 import { Steps } from "antd";
 import React from "react";
+<<<<<<< HEAD
+>>>>>>> parent of 154e064 (ccl-project-changes)
+=======
 >>>>>>> parent of 154e064 (ccl-project-changes)
 const FooterContent = () => {
   const cursorStyle = { cursor: 'pointer' };
   const LINKED_IN_LINK = 'https://www.linkedin.com/in/';
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div
       style={{
@@ -105,6 +112,8 @@ const FooterContent = () => {
       </div>
     </div>
 =======
+=======
+>>>>>>> parent of 154e064 (ccl-project-changes)
     <>
       <Steps size="small" current={4}>
         <Steps.Step
@@ -176,6 +185,9 @@ const FooterContent = () => {
         />
       </Steps>
     </>
+<<<<<<< HEAD
+>>>>>>> parent of 154e064 (ccl-project-changes)
+=======
 >>>>>>> parent of 154e064 (ccl-project-changes)
   );
 };
